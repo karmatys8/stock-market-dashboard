@@ -1,3 +1,31 @@
+:root {
+  --bg-color: #1b1b1e;
+  --card-bg-color: #0c0c0d;
+  --card-border: #0c0c0d;
+  --card-border-must: #141415;
+  --card-box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.05);
+  --heading-color: #ffffff;
+  --table-odd-color: #0c0c0d;
+  --navbars-bg: #0c0c0d;
+  --sidebar-bg: #0c0c0d;
+  --text-muted: #acb2b7;
+  --text-success: #21CC6D;
+  --dark-buttons-bg: #25232b;
+  --dark-buttons-bg-clicked: #86858c;
+  --table-header-color: #acb2b7;
+  --side-border-color: #262626;
+  --top-border-color: #161619;
+  --primary-color: #444CE7;
+  --dim-color: #1f1f26;
+  --text-warning: #EE4658;
+  --text-button: white;
+  --text-button-light: #ffffff;
+  --card-border-width: 1px;
+  --avwap-color: #ffb744;
+  --chat-bg: #1a1a1c;
+  --sidebar-r-bg: #0C0C0D;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
