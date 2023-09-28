@@ -4,10 +4,10 @@
   background-color: var(--card-bg-color);
   color: var(--text-muted);
   aspect-ratio: 1 / 1;
-  border: grey 1px solid;
+  border: var(--border-style);
 }
 
 .card-name {
   width: 100%;
-  border-bottom: grey 1px solid;
+  border-bottom: var(--border-style);
 }
