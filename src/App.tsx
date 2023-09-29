@@ -23,13 +23,7 @@ const PickedStock: React.FC<Props> = ({
 function App() {
   const [pickedStocks, setPickedStocks] = useState(["NEWS"]);
   const [currentStock, setCurrentStock] = useState("NEWS");
-  const [news, setNews] = useState(undefined);
-  const [currentNewsPage, setCurrentNewsPage] = useState(undefined);
   const searchInput = useRef(null);
-
-  useEffect(() => {
-    //getting news
-  }, [])
 
   return (
     <div className="App">
@@ -39,7 +33,7 @@ function App() {
       <div className='site-content'>
         <div className='stocks-list'>
           <ul className='slider'>
-            {pickedStocks.map(stock => <PickedStock name={stock}/>)}
+            {pickedStocks.map(stock => <PickedStock name={stock} key='stock'/>)}
           </ul>
         </div>
         <div className='search-form-container'>
