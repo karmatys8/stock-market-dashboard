@@ -27,9 +27,9 @@ function App() {
 
   return (
     <div className="App">
-      <div className='back-to-top-container'>
+      <button className='back-to-top-button' onClick={() => window.scrollTo(0, 0)}>
         <img className='back-to-top' src={process.env.PUBLIC_URL + '/images/arrowUp.png'} alt="arrow up"/>
-      </div>
+      </button>
       <div className='site-content'>
         <div className='stocks-list'>
           <ul className='slider'>

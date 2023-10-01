@@ -18,8 +18,9 @@ const Slide: React.FC<Props> = ({
   <div className="news-slide">
     <h3>{title}</h3>
     <div className="news-release-info">
+      <span>Source:</span>
       <a className="news-source" href={url}>{source}</a>
-      <span className="news-release-date">{new Date(releaseDate * 1000).toLocaleTimeString("default")}</span>
+      <span className="news-release-date">{new Date(releaseDate * 1000).toLocaleTimeString('it-IT')}</span>
     </div>
     <img className="news-img" src={imgUrl} alt='news thumbnail'/>
     <span className="news-summary">{summary}</span>

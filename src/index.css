@@ -27,6 +27,10 @@
   --border-style: grey 1px solid;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html * {
   font-family: 'Libre Baskerville', serif;
   font-size: 1.1rem;
@@ -49,9 +53,8 @@ code {
 }
 
 button {
-  background-color: inherit;
+  background-color: var(--dark-buttons-bg);
   border-style: none;
   cursor: pointer;
   padding: 0;
-  background-color: var(--dark-buttons-bg);
 }
