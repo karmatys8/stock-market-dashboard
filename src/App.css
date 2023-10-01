@@ -5,6 +5,8 @@
   align-items: center;
 }
 
+
+/* fluid row */
 .fluid-row {
   height: 0;
   position: relative;
@@ -25,9 +27,10 @@
   will-change: opacity, visibility;
 }
 
+
 /* back to top arrow */
 .back-to-top-button {
-  background-color: grey;
+  background-color: var(--primary-color);
   height: 50px;
   position: fixed;
   right: 20px;
@@ -59,17 +62,13 @@
   height: 50px;
   overflow-x: auto;
   white-space: nowrap;
-  border: var(--border-style);
+  border-bottom: var(--border-style);
   text-align: left;
 }
 
 .picked-stock {
   display: inline-block;
   height: 100%;
-  border-left: var(--border-style);
-}
-
-.picked-stock:last-child{
   border-right: var(--border-style);
 }
 
@@ -79,7 +78,7 @@
 }
 
 
-/* search from for stocks */
+/* search form for stocks */
 .search-form {
   margin: 20px 0;
 }
@@ -92,11 +91,12 @@
 .search-input {
   padding-inline: 10px;
   width: 180px;
+  background-color: var(--dim-color);
 }
 
 .submit-button {
   padding: 5px 10px;
-  background-color: var(--text-button);
+  background-color: var(--card-bg-color);
 }
 
 
@@ -105,7 +105,6 @@ footer {
   background-color: var(--bg-color);
   width: 100%;
   position: fixed;
-  left: 0;
   display: flex;
   justify-content: center;
   z-index: 3;
@@ -139,5 +138,19 @@ footer {
 
 .credits-slide img {
   height: 100%;
-  aspect-ratio: 1152 / 576;
+}
+
+
+@media(min-width: 1000px) {
+  .site-content, footer {
+    width: 1000px
+  }
+
+  .back-to-top-button {
+    right: calc(50% - 480px);
+  }
+
+  footer, .slider {
+    border-inline: var(--border-style);
+  }
 }
