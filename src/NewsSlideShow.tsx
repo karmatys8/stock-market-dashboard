@@ -70,8 +70,8 @@ function NewsSlideShow() {
   useEffect(() => {
     resetTimeout();
     timeoutRef.current = setTimeout( () => {
-      setCurrentNewsPage((prevVal) => prevVal === news.length -1 ? 0 : prevVal +1)
-    }, slideChangeRate); // triggers twice during loading
+      setCurrentNewsPage((prevVal) => (prevVal +1) % news.length)
+    }, slideChangeRate);
 
     return () => {resetTimeout();};
   }, [currentNewsPage])

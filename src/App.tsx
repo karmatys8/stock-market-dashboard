@@ -2,17 +2,19 @@ import React, {useEffect, useState, useRef} from 'react';
 import './App.css';
 import NewsSlideshow from './NewsSlideShow';
 import StockInfo from './StockInfo';
+import StockSearch from './StockSearch';
 
 type Props = {
   name: string;
+  setCurrentStock: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const PickedStock: React.FC<Props> = ({
-  name,
+  name, setCurrentStock
 }) => {
   return (
     <li className='picked-stock'>
-      <button>
+      <button onClick={() => setCurrentStock(name)}>
         {name}
       </button>
     </li>
@@ -21,9 +23,9 @@ const PickedStock: React.FC<Props> = ({
 
 
 function App() {
-  const [pickedStocks, setPickedStocks] = useState(["NEWS"]);
-  const [currentStock, setCurrentStock] = useState("NEWS");
-  const searchInput = useRef(null);
+  const [pickedStocks, setPickedStocks] = useState<string[]>(["NEWS"]);
+  const [currentStock, setCurrentStock] = useState<string>("NEWS");
+  const [searchInput, setSearchInput] = useState<string>("");
 
   return (
     <div className="App">
@@ -33,23 +35,15 @@ function App() {
       <div className='site-content'>
         <div className='stocks-list'>
           <ul className='slider'>
-            {pickedStocks.map(stock => <PickedStock name={stock} key='stock'/>)}
+            {pickedStocks.map(stock => <PickedStock name={stock} setCurrentStock={setCurrentStock} key='stock'/>)}
           </ul>
         </div>
-        <div className='search-form-container'>
-          <form className='search-form' onSubmit={e => console.log(e)}>
-            <div className='fluid-row'>
-              <div className='fluid-row-content'>
-                {/* stocks' names */}
-              </div>
-            </div>
-            <label>
-              Search for stocks:<br/>
-              <input className='search-input' type="text" placeholder='fe. "AAPL", "USD"' ref={searchInput}/>
-            </label>
-            <button className='submit-button' type='submit'>Submit</button>
-          </form>
-        </div>
+        <StockSearch
+          pickedStocks={pickedStocks}
+          setPickedStocks={setPickedStocks}
+          searchInput={searchInput}
+          setSearchInput={setSearchInput}
+        />
         {
           currentStock === "NEWS" ? <NewsSlideshow/> : <StockInfo/>
         }
