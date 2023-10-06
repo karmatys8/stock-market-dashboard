@@ -1,0 +1,66 @@
+/* search form for stocks */
+.search-form {
+  margin: 20px 0;
+}
+
+.search-input, .submit-button {
+  margin-inline: 5px;
+  border-radius: 5px;
+}
+
+.search-input {
+  padding-inline: 10px;
+  width: 180px;
+  background-color: var(--dim-color);
+}
+
+.submit-button {
+  padding: 5px 10px;
+  background-color: var(--card-bg-color);
+}
+
+
+/* fluid row */
+.fluid-row {
+  height: 0;
+  position: relative;
+}
+
+.fluid-row-content {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: 50%;
+  top: 52px;
+  width: 180px;
+  transform: translateX(-50%);
+  background-color: var(--dark-buttons-bg);
+  overflow-y: auto;
+  z-index: 1;
+  transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
+  will-change: opacity, visibility;
+}
+
+.search-form:has(.search-input:focus) .fluid-row-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.searched-stock-button {
+  padding: 5px 10px;
+  border: var(--border-style);
+  background-color: inherit;
+  width: 100%;
+}
+
+.searched-stock-button:first-child {
+  border-radius: 5px 5px 0 0;
+}
+
+.searched-stock-button:last-child {
+  border-radius: 0 0 5px 5px;
+}
+
+.searched-stock-button:hover {
+  background-color: var(--card-bg-color);
+}

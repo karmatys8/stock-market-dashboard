@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './StockSearch.css';
 import useDebounce from './useDebounce';
 
 
@@ -12,8 +13,12 @@ const SearchedStock: React.FC<StockProps> = ({
   symbol, pickedStocks, setPickedStocks
 }) => {
   return (
-    <>
-    </>
+    <button
+      className='searched-stock-button'
+      onClick={() => setPickedStocks([...pickedStocks, symbol])
+    }>
+      {symbol}
+    </button>
   )
 }
 
@@ -39,6 +44,7 @@ const StockSearch: React.FC<Props> = ({
   const debouncedValue = useDebounce(searchInput, 500);
   const _handler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVal = e.target.value;
+    
     setSearchInput(newVal);
   }
 
@@ -61,35 +67,45 @@ const StockSearch: React.FC<Props> = ({
   });
 
   useEffect(() => {
-    finnhubClient.symbolSearch(searchInput, (error: any, data: Provider, response: any) => {
+    if (debouncedValue){ // prevent empty string request
+      finnhubClient.symbolSearch(debouncedValue, (error: any, data: Provider, response: any) => {
+      if (data.count > 10) { // idk if it is not slowing the app a lot
+        data.count = 10;
+        let withoutExcess = Array.from(data.result).slice(0, 10);
+        data.result = withoutExcess;
+      }
+
       setStocksToShow(data)
-    })
-  }, [searchInput])
+      })
+    } else { // reset results after clearing the search bar
+      setStocksToShow({
+        "count": 0,
+        "result": []
+      });
+    }
+  }, [debouncedValue])
 
 
   return (
-    <div className='search-form-container'>
-      <form className='search-form'>
-        <div className='fluid-row'>
-          <div className='fluid-row-content'>
-            {
-            stocksToShow.result.map(stock =>
-            <SearchedStock
-              symbol={stock.symbol}
-              pickedStocks={pickedStocks}
-              setPickedStocks={setPickedStocks} 
-              key={stock.symbol}
-            />)
-            }
-          </div>
+    <form className='search-form' onSubmit={(event) => event.preventDefault()}>
+      <div className='fluid-row'>
+        <div className='fluid-row-content'>
+          {
+          stocksToShow.result.map(stock =>
+          <SearchedStock
+            symbol={stock.symbol}
+            pickedStocks={pickedStocks}
+            setPickedStocks={setPickedStocks} 
+            key={stock.symbol}
+          />)
+          }
         </div>
-        <label>
-          Search for stocks:<br/>
-          <input className='search-input' type="text" placeholder='fe. "AAPL", "USD"' onChange={_handler}/>
-        </label>
-        <button className='submit-button' type='submit'>Pick 1st</button>
-      </form>
-    </div>
+      </div>
+      <label>
+        Search for stocks:<br/>
+        <input className='search-input' type="text" placeholder='fe. "AAPL", "USD"' onChange={_handler}/>
+      </label>
+    </form>
   )
 }
 
