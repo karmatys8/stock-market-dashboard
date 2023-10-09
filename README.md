@@ -12,6 +12,7 @@ This app is meant for stock traders who want to easily keep tabs on their invest
 2. Performance optimization
 3. How to prevent race condition
 4. Real time API handling
+5. Project structure organization
 
 
 ## Credits

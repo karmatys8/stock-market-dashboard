@@ -32,15 +32,18 @@ html {
 }
 
 html * {
+  box-sizing: border-box;
+
   font-family: 'Libre Baskerville', serif;
   font-size: 1.1rem;
   color: var(--text-muted);
-  box-sizing: border-box;
 }
 
 body {
   margin: 0;
+
   background-color: var(--bg-color);
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -54,8 +57,9 @@ code {
 }
 
 button {
-  background-color: var(--dark-buttons-bg);
   border-style: none;
-  cursor: pointer;
   padding: 0;
+  
+  background-color: var(--dark-buttons-bg);
+  cursor: pointer;
 }

@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useRef} from "react";
-import './NewsSlideShow.css'
+import '../styles/NewsSlideShow.css';
+import {News} from '../types';
 
 
 type Props = {
@@ -30,19 +31,7 @@ const Slide: React.FC<Props> = ({
 
 
 function NewsSlideShow() {
-  interface Provider {
-    category: string,
-    datetime: number,
-    headline: string,
-    id: number,
-    image: string,
-    related: string,
-    source: string,
-    summary: string,
-    url: string
-  }
-
-  const [news, setNews] = useState<Provider[]>([]);
+  const [news, setNews] = useState<News[]>([]);
   const [currentNewsPage, setCurrentNewsPage] = useState(0);
   const slideChangeRate = 10000;
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);

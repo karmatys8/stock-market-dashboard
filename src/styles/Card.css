@@ -1,13 +1,15 @@
 .card {
-  height: 100px;
-  padding: 10px;
-  background-color: var(--card-bg-color);
-  color: var(--text-muted);
   aspect-ratio: 1 / 1;
   border: var(--border-style);
+  height: 100px;
+  padding: 10px;
+
+  background-color: var(--card-bg-color);
+
+  color: var(--text-muted);
 }
 
 .card-name {
-  width: 100%;
   border-bottom: var(--border-style);
+  width: 100%;
 }

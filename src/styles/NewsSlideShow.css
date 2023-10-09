@@ -1,12 +1,15 @@
 .slideshow {
-  margin: 0 auto;
   overflow: hidden;
+
+  margin: 0 auto;
   max-width: calc(100vw - 30px);
+
   background-color: var(--card-bg-color);
 }
 
 .slides-container {
   display: grid;
+
   transition: ease 1000ms;
 }
 
@@ -17,12 +20,14 @@
 
 .slideshowDot {
   display: inline-block;
-  height: 17px;
+  
+  margin: 15px 6px 0px;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  cursor: pointer;
-  margin: 15px 6px 0px;
+  height: 17px;
+
   background-color: var(--text-muted);
+  cursor: pointer;
 }
 
 .slideshowDot.active {
@@ -34,6 +39,7 @@
 .news-slide {
   grid-row: 1;
   place-self: center;
+
   width: calc(100vw - 30px);
   padding: 20px;
 }
@@ -47,8 +53,8 @@
 }
 
 .news-img {
-  width: 100%;
   margin: 10px 0;
+  width: 100%;
 }
 
 

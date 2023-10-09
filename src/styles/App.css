@@ -1,22 +1,26 @@
 .App {
-  text-align: center;
-  display: flex;
   flex-direction: column;
   align-items: center;
+
+  display: flex;
+
+  text-align: center;
 }
 
 
 /* back to top arrow */
 .back-to-top-button {
-  background-color: var(--primary-color);
-  height: 50px;
   position: fixed;
-  right: 20px;
-  top: 20px;
   z-index: 7;
-  border-radius: 50%;
+  top: 20px;
+  right: 20px;
+
   border: 3px var(--card-border) solid;
+  border-radius: 50%;
+  height: 50px;
   padding: 3px;
+
+  background-color: var(--primary-color);
 }
 
 .back-to-top {
@@ -24,30 +28,35 @@
 }
 
 .site-content {
-  width: 100%;
-  margin: 0;
   overflow: hidden;
+
+  margin: 0;
   margin-bottom: 60px;
+  width: 100%;
 }
 
 
 /* picked stocks slider */
 .slider {
+  overflow-x: auto;
+
   list-style-type: none;
-  padding: 0;
+
   margin: 0;
+  border-bottom: var(--border-style);
   width: 100%;
   height: 50px;
-  overflow-x: auto;
+  padding: 0;
+
   white-space: nowrap;
-  border-bottom: var(--border-style);
   text-align: left;
 }
 
 .picked-stock {
   display: inline-block;
-  height: 100%;
+  
   border-right: var(--border-style);
+  height: 100%;
 }
 
 .picked-stock button {
@@ -58,21 +67,26 @@
 
 /* footer */
 footer {
-  background-color: var(--bg-color);
-  width: 100%;
   position: fixed;
-  display: flex;
-  justify-content: center;
   z-index: 3;
-  height: 50px;
   bottom: 0;
+  justify-content: center;
+
+  display: flex;
+
   border-top: var(--border-style);
+  width: 100%;
+  height: 50px;
+
+  background-color: var(--bg-color);
 }
 
 .credits-container, .credits-slide {
-  height: 100%;
-  overflow: hidden;
   flex-grow: 1;
+
+  overflow: hidden;
+  
+  height: 100%;
 }
 
 @keyframes slideShow {
@@ -86,9 +100,11 @@ footer {
 }
 
 .credits-slide {
-  display: flex;
   justify-content: center;
   align-items: center;
+  
+  display: flex;
+
   animation: 10s infinite alternate slideShow;
 }
 

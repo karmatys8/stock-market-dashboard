@@ -9,36 +9,44 @@
 }
 
 .search-input {
-  padding-inline: 10px;
   width: 180px;
+  padding-inline: 10px;
+
   background-color: var(--dim-color);
 }
 
 .submit-button {
   padding: 5px 10px;
+
   background-color: var(--card-bg-color);
 }
 
 
 /* fluid row */
 .fluid-row {
-  height: 0;
   position: relative;
+
+  height: 0;
 }
 
 .fluid-row-content {
+  position: absolute;
+  z-index: 1;
+  top: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+
   opacity: 0;
   visibility: hidden;
-  position: absolute;
-  left: 50%;
-  top: 52px;
-  width: 180px;
-  transform: translateX(-50%);
-  background-color: var(--dark-buttons-bg);
+
   overflow-y: auto;
-  z-index: 1;
+
   transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
   will-change: opacity, visibility;
+
+  width: 180px;
+
+  background-color: var(--dark-buttons-bg);
 }
 
 .search-form:has(.search-input:focus) .fluid-row-content {
@@ -47,10 +55,11 @@
 }
 
 .searched-stock-button {
-  padding: 5px 10px;
   border: var(--border-style);
-  background-color: inherit;
   width: 100%;
+  padding: 5px 10px;
+  
+  background-color: inherit;
 }
 
 .searched-stock-button:first-child {
