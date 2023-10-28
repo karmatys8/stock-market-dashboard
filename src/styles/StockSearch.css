@@ -22,33 +22,7 @@
 }
 
 
-/* fluid row */
-.fluid-row {
-  position: relative;
-
-  height: 0;
-}
-
-.fluid-row-content {
-  position: absolute;
-  z-index: 1;
-  top: 52px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  opacity: 0;
-  visibility: hidden;
-
-  overflow-y: auto;
-
-  transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
-  will-change: opacity, visibility;
-
-  width: 180px;
-
-  background-color: var(--dark-buttons-bg);
-}
-
+/*search form*/
 .search-form:has(.search-input:focus) .fluid-row-content {
   opacity: 1;
   visibility: visible;

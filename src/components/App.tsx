@@ -3,29 +3,31 @@ import '../styles/App.css';
 import NewsSlideshow from './NewsSlideShow';
 import StockInfo from './StockInfo';
 import StockSearch from './StockSearch';
-
-
-type Props = {
-  name: string;
-  setCurrentStock: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const PickedStock: React.FC<Props> = ({
-  name, setCurrentStock
-}) => {
-  return (
-    <li className='picked-stock'>
-      <button onClick={() => setCurrentStock(name)}>
-        {name}
-      </button>
-    </li>
-  )
-}
+import StocksList from './StocksList';
 
 
 function App() {
-  const [pickedStocks, setPickedStocks] = useState<string[]>(["NEWS"]);
+  const [pickedStocks, setPickedStocks] = useState<string[]>([]);
   const [currentStock, setCurrentStock] = useState<string>("NEWS");
+
+
+  useEffect(() => {
+    const followedStocks = window.localStorage.getItem("pickedStocks");
+    followedStocks && setPickedStocks(JSON.parse(followedStocks));
+  }, [])
+
+
+  const isInitialMount = useRef(true);
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      window.localStorage.setItem("pickedStocks", JSON.stringify(pickedStocks));
+    }
+    
+  },
+  [pickedStocks])
+
 
   return (
     <div className="App">
@@ -33,11 +35,7 @@ function App() {
         <img className='back-to-top' src={process.env.PUBLIC_URL + '/images/arrowUp.png'} alt="arrow up"/>
       </button>
       <div className='site-content'>
-        <div className='stocks-list'>
-          <ul className='slider'>
-            {pickedStocks.map(stock => <PickedStock name={stock} setCurrentStock={setCurrentStock} key='stock'/>)}
-          </ul>
-        </div>
+      <StocksList pickedStocks={pickedStocks} setPickedStocks={setPickedStocks} setCurrentStock={setCurrentStock}/>
         <StockSearch
           pickedStocks={pickedStocks}
           setPickedStocks={setPickedStocks}

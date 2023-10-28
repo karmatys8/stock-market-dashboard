@@ -8,6 +8,34 @@
 }
 
 
+/* fluid row */
+.fluid-row {
+  position: relative;
+
+  height: 0;
+}
+
+.fluid-row-content {
+  position: absolute;
+  z-index: 1;
+  top: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  opacity: 0;
+  visibility: hidden;
+
+  overflow-y: auto;
+
+  transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
+  will-change: opacity, visibility;
+
+  width: 180px;
+
+  background-color: var(--dark-buttons-bg);
+}
+
+
 /* back to top arrow */
 .back-to-top-button {
   position: fixed;
@@ -33,35 +61,6 @@
   margin: 0;
   margin-bottom: 60px;
   width: 100%;
-}
-
-
-/* picked stocks slider */
-.slider {
-  overflow-x: auto;
-
-  list-style-type: none;
-
-  margin: 0;
-  border-bottom: var(--border-style);
-  width: 100%;
-  height: 50px;
-  padding: 0;
-
-  white-space: nowrap;
-  text-align: left;
-}
-
-.picked-stock {
-  display: inline-block;
-  
-  border-right: var(--border-style);
-  height: 100%;
-}
-
-.picked-stock button {
-  height: 100%;
-  padding-inline: 10px;
 }
 
 
@@ -122,7 +121,7 @@ footer {
     right: calc(50% - 480px);
   }
 
-  footer, .slider {
+  footer {
     border-inline: var(--border-style);
   }
 }

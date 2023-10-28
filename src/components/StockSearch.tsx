@@ -4,13 +4,13 @@ import useDebounce from './useDebounce';
 import {StockSearchResult} from '../types';
 
 
-type StockProps = {
+type SearchedStockProps = {
   symbol: string,
   pickedStocks: string[];
   setPickedStocks: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-const SearchedStock: React.FC<StockProps> = ({
+const SearchedStock: React.FC<SearchedStockProps> = ({
   symbol, pickedStocks, setPickedStocks
 }) => {
   return (

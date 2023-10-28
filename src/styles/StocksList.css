@@ -1,0 +1,65 @@
+.stocks-list {
+  display: flex;
+
+  border-bottom: var(--border-style);
+  width: 100%;
+}
+
+.slider {
+  flex-grow: 1;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  list-style-type: none;
+
+  margin: 0;
+  height: 50px;
+  padding: 0;
+
+  white-space: nowrap;
+  text-align: left;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.picked-stock {
+  display: inline-block;
+  
+  border-right: var(--border-style);
+  height: 100%;
+}
+
+.stock-name {
+  display: inline-block;
+
+  height: 50px;
+  padding-inline: 10px;
+}
+
+.stock-menu {
+  display: inline-block;
+  
+  height: 50px;
+  padding: 2px;
+}
+
+.stock-menu button, .stock-menu button img,
+.delete-stock, .delete-stock img {
+  height: 100%;
+}
+
+.deletable-stock {
+  display: flex;
+
+  height: 100%;
+}
+
+
+@media(min-width: 1000px) {
+  .stocks-list {
+    border-inline: var(--border-style);
+  }
+}
