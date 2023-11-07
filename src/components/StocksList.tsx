@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/StocksList.css';
+import Draggable from './Draggable';
 
 
 type PickedStockProps = {
@@ -23,8 +24,8 @@ const PickedStock: React.FC<PickedStockProps> = ({
         <button className='stock-name' onClick={() => setCurrentStock(name)}>
           {name}
         </button>
-        <button className='delete-stock' onClick={() => deleteStock(name)}>
-          <img src={process.env.PUBLIC_URL + '/images/thrash.webp'} alt='thrash'/>
+        <button className='delete-stock' onDoubleClick={() => deleteStock(name)}>
+          <img className='delete-img' src={process.env.PUBLIC_URL + '/images/thrash.webp'} alt='thrash'/>
         </button>
       </div>
     </li>
@@ -38,9 +39,12 @@ type Props = {
   setCurrentStock: React.Dispatch<React.SetStateAction<string>>;
 }
 
+
 const StocksList: React.FC<Props> = ({
   pickedStocks, setPickedStocks, setCurrentStock
 }) => {
+
+
   return (
     <div className='stocks-list'>
       <div className='picked-stock'>
@@ -48,15 +52,18 @@ const StocksList: React.FC<Props> = ({
           NEWS
         </button>
       </div>
-      <ul className='slider'>
-        {pickedStocks.map(stock => <PickedStock
-                                      name={stock}
-                                      pickedStocks={pickedStocks}
-                                      setPickedStocks={setPickedStocks}
-                                      setCurrentStock={setCurrentStock}
-                                      key={stock}
-                                    />)}
-      </ul>
+      <Draggable>
+        <ul className='slider'>
+          {pickedStocks.map(stock => <PickedStock
+                                        name={stock}
+                                        pickedStocks={pickedStocks}
+                                        setPickedStocks={setPickedStocks}
+                                        setCurrentStock={setCurrentStock}
+                                        key={stock}
+                                      />)}
+        </ul>
+      </Draggable>
+      
     </div>
   )
 }

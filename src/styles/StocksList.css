@@ -1,3 +1,18 @@
+/* draggable */
+.draggable {
+  overflow-x: scroll;
+}
+
+.draggable::-webkit-scrollbar {
+  display: none;
+}
+
+.grabbed, .grabbed button { /* to overwrite button properties from index.css */
+  cursor: grabbing;
+}
+
+
+/* stocks list */
 .stocks-list {
   display: flex;
 
@@ -39,16 +54,12 @@
   padding-inline: 10px;
 }
 
-.stock-menu {
-  display: inline-block;
-  
-  height: 50px;
-  padding: 2px;
+.delete-stock, .delete-img {
+  height: 100%;
 }
 
-.stock-menu button, .stock-menu button img,
-.delete-stock, .delete-stock img {
-  height: 100%;
+.delete-img {
+  pointer-events: none;
 }
 
 .deletable-stock {
